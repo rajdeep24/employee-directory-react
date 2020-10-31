@@ -1,19 +1,14 @@
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import About from "./containers/About/About";
-import Discover from "./containers/Discover/Discover";
-import Search from "./containers/Search/Search";
-import Navbar from "./components/Navbar/Navbar";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Header from "./components/Header/Header";
+import EmployeeTable from "./components/EmployeeTable/EmployeeTable";
 
 function App() {
 	return (
 		<>
 			<Router>
-				<Navbar />
+				<Header />
 				<Switch>
-					<Route exact path="/" component={About} />
-					<Route exact path="/discover" component={Discover} />
-					<Route exact path="/search" component={Search} />
-					<Route exact path="/about" component={About} />
+					<Route exact path="/EmployeeTable" component={EmployeeTable} />
 				</Switch>
 			</Router>
 		</>
