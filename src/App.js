@@ -1,10 +1,20 @@
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import About from "./containers/About/About";
+import Discover from "./containers/Discover/Discover";
+import Search from "./containers/Search/Search";
+
 function App() {
 	return (
-		<div className="container">
-			<div className="row">
-				<div className="col s6">Available Burgers</div>
-			</div>
-		</div>
+		<>
+			<Router>
+				<Switch>
+					<Route exact path="/" component={About} />
+					<Route exact path="/discover" component={Discover} />
+					<Route exact path="/search" component={Search} />
+					<Route exact path="/about" component={About} />
+				</Switch>
+			</Router>
+		</>
 	);
 }
 
