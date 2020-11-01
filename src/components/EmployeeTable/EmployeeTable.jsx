@@ -4,6 +4,9 @@ import Api from "../../utility/Api";
 class EmployeeTable extends React.Component {
 	state = {
 		result: [],
+		filter: [],
+		search: "",
+		sort: false,
 	};
 	componentDidMount() {
 		this.employeeDirectory();
@@ -11,11 +14,18 @@ class EmployeeTable extends React.Component {
 	employeeDirectory = () => {
 		Api.getUsers()
 			//.then((res) => console.log(res.data));
-			.then((res) => this.setState({ result: res.data.results }));
+			.then((res) => this.setState({ result: res.data.results }))
+			.then((res) => this.setState({ filter: this.data.result }))
+			.catch((err) => console.log(err));
 	};
 
 	handleInputChange = (event) => {
 		const value = event.target.value;
+		const filtered = this.state.result.filter(
+			(query) =>
+				query.name.first.includes(value) || query.name.last.includes(value)
+		);
+		this.setState({ filter: filtered });
 	};
 
 	render() {
@@ -53,7 +63,7 @@ class EmployeeTable extends React.Component {
 							</tr>
 						</thead>
 						<tbody>
-							{this.state.result.map((element) => (
+							{this.state.filter.map((element) => (
 								<tr>
 									<th scope="row">
 										<img
