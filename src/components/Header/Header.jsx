@@ -2,12 +2,8 @@ import React from "react";
 
 function Header() {
 	return (
-		<nav>
-			<div className="nav-wrapper teal">
-				<a href="#" className="brand-logo center">
-					Employee Directory
-				</a>
-			</div>
+		<nav class="navbar navbar-dark bg-dark">
+			<span class="navbar-brand mb-0 h1">Employee Directory</span>
 		</nav>
 	);
 }
