@@ -22,6 +22,24 @@ class EmployeeTable extends React.Component {
 		return (
 			<>
 				<div className="container">
+					<br></br>
+					<form className="form-inline submit-form justify-content-center">
+						<input
+							className="form-control mr-sm-2"
+							onChange={this.handleInputChange}
+							type="search"
+							placeholder="Search"
+							aria-label="Search"
+						/>
+						<button
+							className="btn btn-outline-success submit-btn"
+							type="submit"
+						>
+							Search
+						</button>
+					</form>
+					<br></br>
+
 					<table className="table">
 						<thead>
 							<tr>
