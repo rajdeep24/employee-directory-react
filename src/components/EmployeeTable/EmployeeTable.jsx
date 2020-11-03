@@ -28,6 +28,33 @@ class EmployeeTable extends React.Component {
 		this.setState({ filter: filtered });
 	};
 
+	handleSort = (event) => {
+		event.preventDefault();
+		// let sortingAlphabetically = false;
+		const sorted = this.state.result.sort((first, compareFirst) => {
+			let firstA = first.name.first.toUpperCase();
+			let firstB = compareFirst.name.first.toUpperCase();
+
+			let comparison = 0;
+			if (firstA > firstB) {
+				comparison = 1;
+			} else if (firstA < firstB) {
+				comparison = -1;
+			}
+			if (this.state.sort == false) {
+				return comparison;
+			} else {
+				return comparison * -1;
+			}
+		});
+		this.state.sort
+			? this.setState({ sort: false })
+			: this.setState({ sort: true });
+		console.log(this.state.sort);
+		// this.setState({ sort: sortingAlphabetically })
+		this.setState({ result: sorted });
+	};
+
 	render() {
 		return (
 			<>
